@@ -33,7 +33,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="img/JOHNlogoupdated-min.png" class="d-line-block align-text-middle" 
-            width="30" height="24" alt="logo" /> App Name</a>
+            width="30" height="24" alt="logo" /> REWIND</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/teyeb/Rewind">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="">About</a>
@@ -68,17 +68,54 @@
       <div class="container py-5 px-5 mt-5">
           <h1 class="border-3 border-bottom border-dark">The Code</h1>
             <div class="row row-cols-1 row-cols-lg-2">
-                <div class="col-lg-8">
+                <div class="col-md-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            //Call Hello World
-                                function helloWOrld(){
-                                    alert("Hello World!");
-                                }
+                            
+                        //obtain the string from the input
+                        //controller
+                        const getString = ()=>{
+                            document.getElementById("alert").classList.add("invisible");
+                            const string = document.getElementById("inputReverse").value;
+                            return splitString(string)
+                        }
+
+
+                        // split into an array
+                        //model 1
+                        const splitString = string=>{
+                            const array = string.split("");
+                            return reverseString(array);
+                        }
+
+                        //concat a new string in reverse
+                        //model2
+                        const reverseString = array=>{
+                            let reversedString = "";
+
+                            //read array in reverse and concat into string
+                            for(let i = array.length-1; i>=0; i--){
+                                reversedString += array[i];
+                            }
+
+                            return displayMessage(reversedString);
+                        }
+
+                        //display message with reversed string
+                        //view
+                        const displayMessage = reversedString =>{
+                            //grab id of display message paragraph element
+                            const paragraph = document.getElementById("msg");
+
+                            //make it visible
+
+                            document.getElementById("alert").classList.remove("invisible");
+                            return paragraph.innerHTML = `Your reversed string is ${reversedString}`;
+                        }
                         </code>
                     </pre>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                         <p>The code is structured in one function.</p>
                         <h5>Hello World</h5>
                         <p>Hello World is a function that displays an alert with a message of "hello world".</p>
